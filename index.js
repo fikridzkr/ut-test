@@ -1,20 +1,44 @@
+let lantai = 1;
+let i = 1;
 function checkLoker(noLoker) {
-  switch (true) {
-    case noLoker <= 5:
-      return 'Lantai 1';
-    case noLoker > 5 && noLoker <= 11:
-      return 'Lantai 2';
-    case noLoker > 11 && noLoker <= 18:
-      return 'Lantai 3';
-    case noLoker > 18 && noLoker <= 23:
-      return 'Lantai 4';
-    case noLoker > 23 && noLoker <= 29:
-      return 'Lantai 5';
-    case noLoker > 29 && noLoker <= 36:
-      return 'Lantai 6';
-    default:
-      return 'Loker Tidak Ada';
+  let text = `Lantai ${lantai}`;
+  while (i <= 5 * lantai) {
+    // console.log(i);
+    if (noLoker === i) {
+      text = `Lantai ${lantai}`;
+      break;
+    } else {
+      if (i === 5 * lantai) {
+        lantai++;
+        break;
+      }
+      i++;
+    }
   }
+  while (i <= 6 * lantai) {
+    if (i === 6 * lantai) {
+      lantai++;
+    }
+    if (noLoker === i) {
+      text = `Lantai ${lantai}`;
+      break;
+    }
+    i++;
+  }
+
+  while (i <= 7 * lantai - 2) {
+    if (i === 7 * lantai - 2) {
+      lantai++;
+    }
+    if (noLoker === i) {
+      text = `Lantai ${lantai}`;
+      break;
+    }
+    // console.log(i);
+    i++;
+  }
+
+  return text;
 }
 
-console.log(checkLoker(19));
+console.log(checkLoker(24));
